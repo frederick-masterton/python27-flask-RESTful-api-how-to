@@ -34,6 +34,7 @@ Login to MySQL from bash prompt infile=1$:
 mysql --local-infile=1 -u username -p
 
 Then run the following commands in your mysql prompt (will display as 'mysql>' in bash).
+```html
 mysql>CREATE DATABASE mikesmotorshops;
 mysql>USE mikesmotorshops;
 mysql>CREATE TABLE motorshops (
@@ -50,7 +51,7 @@ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
 
 mysql> LOAD DATA LOCAL INFILE '/path/mikesmotorshops.tsv' INTO TABLE mikesmotorshops 
 FIELDS TERMINATED BY '\t' ENCLOSED BY '"' LINES TERMINATED BY '\n';
-
+```
 Great now your data is in your database and we can create your own RESTful API.
 
 3.Designing a RESTful API:
@@ -71,7 +72,7 @@ For a collection of motor shops in the USA:
 ```
 
 Let's map out what we want to happen with each "verb" request. (POST,GET,DELETE and PUT)
-
+```html
 POST /motorshops/   (GOOD: add a new motorshop)
 POST /motorshops/<id> (ERROR: add a new motorshop to id.)
 
@@ -83,7 +84,7 @@ PUT /motorshops/<id> (GOOD: add a new motorshop to id.)
 
 DELETE /motorshops/   (GOOD: delete all motorshops)
 DELETE /motorshops/<id> (GOOD: delete a motorshop with that id.)
-
+```
 
 4.Implementing the RESTful API.
 Now let's check out route.py.
